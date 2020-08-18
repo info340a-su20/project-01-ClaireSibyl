@@ -1,0 +1,408 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Comic Sans MS", sans-serif;
+    margin: 10px;
+}
+
+main {
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+/*NAVIGATION AND FOOTER*/
+
+nav {
+    top: 0;
+    z-index: 1;
+    height: 90px;
+    background-image: url('../img/banner.png');
+    background-color:#4a0072;
+}
+
+#nav_list {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#nav_list > li {
+    float: left;
+}
+
+.nav_links {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 3px 10px;
+
+    line-height: 700%;
+    font-size: large;
+}
+
+#nav_list, #nav_list > li, .nav_links {
+    height: 100%;
+}
+
+li > a:hover, li > a:active, li > a:focus {
+    color: #ffb3c9;
+    border-bottom: .6rem solid #ffb3c9;
+    padding-bottom: .8rem;
+}
+
+nav, footer {
+    position: fixed;
+    left: 0;
+    width: 100%;
+}
+
+footer {
+    bottom: 0;
+    color: white;
+    font-size: x-small;
+    height: 30px;
+    background-color: #ff789a;
+    justify-content: center;
+}
+
+footer > p {
+    text-align: center;
+}
+
+/*LOGO*/
+
+#logo {
+    height: 50px;
+    margin-right: 10px;
+}
+
+/*LOOP BUTTON*/
+
+button  {
+    position: absolute;
+    right: 3%;
+    bottom: 10%;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    height: 2rem;
+    background-color: #ff789a;
+    border: none;
+}
+
+button > i {
+    margin: 2px;
+}
+
+button:hover {
+    /*must separate to cover all corners; otherwise top-right and bottom-left will be left out*/
+    box-shadow: 0px 5px 10px rgb(255, 179, 201), 0px -5px 10px rgb(255, 179, 201), 5px 0px 10px rgb(255, 179, 201), -5px 0px 10px rgb(255, 179, 201);
+}
+
+/*SKIP*/
+
+#skip {
+    position: absolute;
+    left: -10000px;
+    height: 1px;
+    width: 1px;
+    font-size: 10px;
+}
+
+#skip:focus, #skip:active {
+    top: 0;
+    left: auto;
+    height: auto;
+    width: auto;
+    overflow: visible;
+    color: white;
+    border: none;
+}
+
+/*PORTRAITS*/
+
+#portrait_section {
+    flex: 1;
+}
+
+#portrait_container {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.portrait_card {
+    flex: 0 1 100px; /*width of the box*/
+    margin: .5rem;
+    background-color: white;
+
+    height: 120px; /* height changes the height of the card not the picture*/
+    flex-direction: column;        
+}
+
+.portrait_card:hover {
+    box-shadow: 0px 5px 10px rgb(122, 54, 161), 0px -5px 10px rgb(122, 54, 161), 5px 0px 10px rgb(122, 54, 161), -5px 0px 10px rgb(122, 54, 161) !important;
+}
+
+div > img {
+    height: 85%;/*card height + this height will change the height of the card; width will be of the box*/
+}
+
+.portrait_description {
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    margin: 0.2rem;
+    padding: 0;
+}
+
+.portrait_image {
+    border-radius: .5rem .5rem 0 0;     
+}
+
+/*VIDEOS*/
+
+.boss_section {
+    display: none;
+    flex-direction: column;
+    padding: 1rem 0 0 0;
+}
+
+.video_card {
+    flex: 0 0 1;
+    background-color: #4a0072;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.507);
+ 
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 0.5rem;
+}
+
+video {
+    height: 100%;
+    z-index: 0;
+
+    border-radius: 10px 10px 0 0;
+}
+
+.video_item {       
+    margin: 0;
+    padding: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.text_item {
+    text-align: center;
+    line-height: 1.5;
+
+    font-size: small;
+    margin: 0;
+    padding: 0 .5rem 0 .5rem;
+    border-radius: 0 0 10px 10px;     
+}
+
+/*ABOUT*/
+
+.about_section {
+    padding: 0 10px 10px 10px;
+    margin: 10px;
+    border: solid #4a0072; 
+}
+
+input:focus, textarea:focus, #submit_button:hover {
+    outline: none;
+    box-shadow: 0 0 3px 2px #ff789a;    
+    border-radius: 5px;
+}
+
+input, textarea {
+    border: 1px solid #1e0046;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+#submit_button {
+    background-color: #eae5ff;
+    margin-top: 5px;
+}
+
+/*ALL BUTTONS*/
+
+.button {
+    cursor: pointer;
+}
+
+/*CROSS COMBOS*/
+
+body, input, textarea {
+    color: #1e0046;
+}
+
+.video_card, video, .video_item, .text_item {
+    width: 100%;
+}
+
+#portrait_container, .portrait_card, .video_card {
+    display: flex;
+}
+
+#portrait_section, .text_item, .about_section {
+    background-color: #ffebee;
+}
+
+button, #portrait_section, .portrait_card, .about_section {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.16), 1px 1px 3px rgba(0, 0, 0, 0.23);
+}
+
+button, #portrait_section, .portrait_card, .video_card, .about_section {
+    border-radius: 10px;
+}
+
+/*MEDIA SIZING*/
+
+/*SMALL*/
+
+@media (min-width: 598px) {
+
+    /*NAVIGATION*/
+
+    .nav_links {
+        line-height: 500%;
+        font-size: x-large;
+    }
+
+    /*LOOP BUTTON*/
+    
+    button  {
+        height: 2.5rem;
+        font-size: x-large;
+    }
+    
+    button > i {
+        margin: 5px;
+    }    
+}
+
+/*MEDIUM*/
+
+@media (min-width: 768px) {
+
+    /*PORTRAITS*/
+
+    .portrait_card {
+        height: 200px;
+    }
+
+    .portrait_description {
+        font-size: medium;
+        margin: 0.4rem;
+    }
+
+    /*VIDEOS*/
+
+    .text_item {
+        font-size: medium;
+    }
+}
+
+/*LARGE*/
+
+@media (min-width: 992px) {
+
+    /*PORTRAITS*/
+    
+    .portrait_card {
+        height: 250px;
+    }
+
+    .portrait_description {
+        font-size: large;
+        margin: 0.5rem;
+    }
+
+    /*VIDEOS*/
+
+    .boss_section {
+        padding: 1rem;
+    }
+
+    .video_card {
+        flex-direction: row;
+        padding: 0;
+
+    }
+
+    .video_item {
+        margin: .6rem .3rem .6rem .6rem;
+        background-color: #ffebee;
+        
+    }
+
+    .text_item {
+        position: relative;
+        font-size: large;
+        margin: .6rem .6rem .6rem .3rem;
+    }
+
+    video, .video_item, .text_item {
+        border-radius: 10px;
+    }
+
+    .video_item, .text_item {
+        width: 50%;
+        padding: .3rem;
+    }
+
+    .text_item > p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%); 
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+    }
+}
+
+/*X-LARGE*/
+
+@media (min-width: 1250px) {
+
+    /*VIDEOS*/
+
+    .text_item {
+        font-size: x-large;
+    }
+
+    /*ABOUT*/
+
+    .about_section {
+        margin-bottom: 10px;
+    }
+}
+
+/*XX-LARGE*/
+
+@media (min-width: 1700px) {
+    
+    /*PORTRAITS*/
+    
+    .portrait_card {
+        height: 300px;       
+    }
+
+    .portrait_description {
+        font-size: x-large;
+        margin: 0.5rem;
+    }
+
+    /*VIDEOS*/
+
+    .text_item {
+        font-size: xx-large;
+    }
+}
