@@ -12,6 +12,32 @@ main {
     margin-bottom: 40px;
 }
 
+/*CROSS COMBOS*/
+
+body, input, textarea {
+    color: #1e0046;
+}
+
+.video_card, video, .video_item, .text_item {
+    width: 100%;
+}
+
+#portrait_container, .portrait_card, .video_card {
+    display: flex;
+}
+
+#portrait_section, .text_item, .about_section {
+    background-color: #ffebee;
+}
+
+button, #portrait_section, .portrait_card, .about_section {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.16), 1px 1px 3px rgba(0, 0, 0, 0.23);
+}
+
+button, #portrait_section, .portrait_card, .video_card, .about_section {
+    border-radius: 10px;
+}
+
 /*NAVIGATION AND FOOTER*/
 
 nav {
@@ -212,12 +238,6 @@ video {
     border: solid #4a0072; 
 }
 
-input:focus, textarea:focus, #submit_button:hover {
-    outline: none;
-    box-shadow: 0 0 3px 2px #ff789a;    
-    border-radius: 5px;
-}
-
 input, textarea {
     border: 1px solid #1e0046;
     border-radius: 5px;
@@ -229,37 +249,19 @@ input, textarea {
     margin-top: 5px;
 }
 
+input:focus, textarea:focus, #submit_button:hover {
+    outline: none;
+    box-shadow: 0 0 3px 2px #ff789a;    
+    border-radius: 5px;
+}
+
 /*ALL BUTTONS*/
 
 .button {
     cursor: pointer;
 }
 
-/*CROSS COMBOS*/
 
-body, input, textarea {
-    color: #1e0046;
-}
-
-.video_card, video, .video_item, .text_item {
-    width: 100%;
-}
-
-#portrait_container, .portrait_card, .video_card {
-    display: flex;
-}
-
-#portrait_section, .text_item, .about_section {
-    background-color: #ffebee;
-}
-
-button, #portrait_section, .portrait_card, .about_section {
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.16), 1px 1px 3px rgba(0, 0, 0, 0.23);
-}
-
-button, #portrait_section, .portrait_card, .video_card, .about_section {
-    border-radius: 10px;
-}
 
 /*MEDIA SIZING*/
 
@@ -360,10 +362,9 @@ button, #portrait_section, .portrait_card, .video_card, .about_section {
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-right: -50%;
         transform: translate(-50%, -50%); 
         width: 100%;
-        margin: 0;
+        margin: 0 -50% 0 0;
         padding: 15px;
     }
 }

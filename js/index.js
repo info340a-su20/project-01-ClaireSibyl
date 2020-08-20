@@ -1,9 +1,9 @@
 'use strict';
 
-let sp_rita_card = document.getElementById('sp_rita_card');
-let sp_syaro_card = document.getElementById('sp_syaro_card');
-let sp_miru_card = document.getElementById('sp_miru_card');
-let sp_irisu_card = document.getElementById('sp_irisu_card');
+let spRitaCard = document.getElementById('sp_rita_card');
+let spSyaroCard = document.getElementById('sp_syaro_card');
+let spMiruCard = document.getElementById('sp_miru_card');
+let spIrisuCard = document.getElementById('sp_irisu_card');
 
 let state = {
     bossList: [
@@ -23,17 +23,17 @@ function toggleDisplay() {
     let boss = 'SP Rita';
 
     /*seek correct boss*/
-    if (this == sp_syaro_card) {
+    if (this == spSyaroCard) {
 
         section = document.getElementById('sp_syaro_section');
         boss = 'SP Syaro';
 
-    } else if (this == sp_miru_card) {
+    } else if (this == spMiruCard) {
 
         section = document.getElementById('sp_miru_section');
         boss = 'SP Miru';
 
-    } else if (this == sp_irisu_card) {
+    } else if (this == spIrisuCard) {
 
         section = document.getElementById('sp_irisu_section');
         boss = 'SP Irisu';
@@ -70,10 +70,10 @@ function toggleDisplay() {
 }
 
 
-sp_rita_card.addEventListener('click', toggleDisplay);
-sp_syaro_card.addEventListener('click', toggleDisplay);
-sp_miru_card.addEventListener('click', toggleDisplay);
-sp_irisu_card.addEventListener('click', toggleDisplay);
+spRitaCard.addEventListener('click', toggleDisplay);
+spSyaroCard.addEventListener('click', toggleDisplay);
+spMiruCard.addEventListener('click', toggleDisplay);
+spIrisuCard.addEventListener('click', toggleDisplay);
 
 let allPortraits= Array.prototype.slice.call(document.getElementsByClassName('portrait_card'));
 
@@ -94,10 +94,10 @@ function toggleGlow() {
 
 }
 
-sp_rita_card.addEventListener('click', toggleGlow);
-sp_syaro_card.addEventListener('click', toggleGlow);
-sp_miru_card.addEventListener('click', toggleGlow);
-sp_irisu_card.addEventListener('click', toggleGlow);
+spRitaCard.addEventListener('click', toggleGlow);
+spSyaroCard.addEventListener('click', toggleGlow);
+spMiruCard.addEventListener('click', toggleGlow);
+spIrisuCard.addEventListener('click', toggleGlow);
 
 
 let allVideos = Array.prototype.slice.call(document.getElementsByTagName('video'));
