@@ -91,6 +91,8 @@ function createCommentItemElement(comment) {
     newDiv.appendChild(identifier);
     newDiv.appendChild(commentArea);
 
+    newDiv.classList.add('single_comment');
+
     return newDiv;
 
 }
@@ -151,3 +153,142 @@ function renderInput() {
 
 }
 
+//---------------------------------------
+
+
+
+//one "track" is an object from the results array; with an artistName, trackName, previewURL, and artworkUrl100
+function renderTrack(track) {
+
+    let newDiv = document.createElement('div');
+
+
+    let newTrackImg = document.createElement('img');
+
+    newTrackImg.src = track.artworkUrl100;
+    newTrackImg.alt = track.trackName;
+    newTrackImg.title = track.trackName;
+
+    newTrackImg.style.cursor = 'pointer';
+
+    newTrackImg.addEventListener('click', function(){
+
+        playTrackPreview(track, this)
+
+    });
+
+    newTrackImg.classList.add('music_img');
+
+    newDiv.appendChild(newTrackImg);
+
+    let newP = document.createElement('p');
+
+    newP.classList.add('music_label');
+
+    newP.innerHTML = "<b>"+ track.trackName+ "</b>" +  " by: " + "<em>" + track.artistName + "</em>";
+
+    newDiv.appendChild(newP);
+
+    newDiv.classList.add('track_div');
+    document.getElementById('music').appendChild(newDiv);
+
+
+}
+
+//Render search
+  
+function renderSearchResults(searchResults, term) {
+
+
+    if (searchResults.results == undefined || searchResults.results.length == 0) {
+
+        renderError(new Error("Something went wrong loading the tracks! ):"));
+
+    } else {
+        
+        //for each array item (object) in the results array of the searchResults object, call renderTrack
+        let title = term.substr(10, term.length - 1);
+
+        for (let i = 0; i < searchResults.results.length; i++) {
+
+            if (searchResults.results[i].trackName.toLowerCase() == title){
+                renderTrack(searchResults.results[i]);
+
+            }
+
+        } 
+
+    }
+}
+  
+  
+//Fetch
+const URL_TEMPLATE = "https://itunes.apple.com/search?entity=song&term={searchTerm}";
+
+    function fetchTrackList(term) {
+
+    let url = URL_TEMPLATE.replace("{searchTerm}", term);
+
+    let promise = fetch(url)
+    .then(function(response) {
+        let dataPromise = response.json();
+        return dataPromise;
+        
+    })
+    .then(function(data) {
+        renderSearchResults(data, term);
+    })
+    .catch(function(error){
+        renderError(error);
+    });
+
+    return promise;
+
+}
+  
+  
+fetchTrackList("rabi-ribi melting point (dlc)");
+fetchTrackList("rabi-ribi azure (dlc)");
+fetchTrackList("rabi-ribi boss battle #3"); //high-tech duel
+fetchTrackList("rabi-ribi boss battle #7"); //sudden death
+fetchTrackList("rabi-ribi boss battle #8"); //M.R.
+fetchTrackList("rabi-ribi final boss battle #3"); //rfn - III
+fetchTrackList("rabi-ribi opening"); //theme of rabi-ribi
+
+//Errors
+
+function renderError(error) {
+
+    let newAlertP = document.createElement('p');
+
+    newAlertP.textContent = error.message;
+
+    document.getElementById('music').appendChild(newAlertP);
+
+}
+  
+
+//Audio
+
+const audio = { previewAudio: new Audio() };
+
+function playTrackPreview(track, img) {
+    if(audio.previewAudio.src !== track.previewUrl){ 
+        document.querySelectorAll('img').forEach(function(element){
+        element.classList.remove('current_glow');
+        }); 
+
+        audio.previewAudio.pause(); 
+        audio.previewAudio = new Audio(track.previewUrl); 
+        audio.previewAudio.play(); 
+        img.classList.add('current_glow'); 
+    } 
+    else {
+        if(audio.previewAudio.paused){ 
+        audio.previewAudio.play();
+        } else {
+        audio.previewAudio.pause();
+        }
+        img.classList.toggle('current_glow'); 
+    }
+}
