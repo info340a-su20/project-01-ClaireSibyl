@@ -75,17 +75,21 @@
                     I will be updating this list as necessary as I add clips and features.
                 </p>
         </div>
-        <div id="comment_section" class="about_section">
+        <div class="about_section">
             <h1>Leave a comment!</h1>
 
             <form action="/action_page.php" id="comment_form">
-                Name: <input type="text" name="commenter">
+                Name: <input id="name_field" type="text" name="commenter">
                 <input id="submit_button" class="button" type="submit">
             </form>
 
             <br>
 
-            <textarea rows="4" cols="50" name="comment" form="comment_form">Your comment here!</textarea>
+            <textarea id="comment_field" rows="4" cols="50" name="comment" form="comment_form">Your comment here!</textarea>
+
+            <div id="comment_section">
+
+            </div>
         </div>
 
         <footer>
@@ -95,5 +99,6 @@
          </footer>
 
     </main>
+    <script src="js/about.js"></script>
 </body>
 </html>
