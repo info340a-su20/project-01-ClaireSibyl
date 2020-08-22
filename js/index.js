@@ -80,14 +80,12 @@ let allPortraits= Array.prototype.slice.call(document.getElementsByClassName('po
 function toggleGlow() {
 
     this.classList.add('current_glow');
-    //this.style.boxShadow = '0px 5px 10px rgb(255, 120, 154), 0px -5px 10px rgb(255, 120, 154), 5px 0px 10px rgb(255, 120, 154), -5px 0px 10px rgb(255, 120, 154)';
 
     for (let i = 0; i < allPortraits.length; i++) {
 
         if (this != allPortraits[i]) {
 
             allPortraits[i].classList.remove('current_glow');
-            //allPortraits[i].style.boxShadow = '1px 1px 3px rgba(0, 0, 0, 0.16), 1px 1px 3px rgba(0, 0, 0, 0.23)';
 
         }
 

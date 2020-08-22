@@ -1,8 +1,12 @@
 'use strict';
 
+//COMMENT SECTION---------------------------------------------------------------------------------------------------
+
 //commentList is an array of comment objects with properties: id, name, description, and date
 let state = {
-  commentList: [],
+  commentList: [
+      {id:1, name:'Anne', description:'wow so cool yay', date:'21/08/2020 @22:12:12'}
+  ],
   inputtedName: "",
   inputtedComment: ""
 };
@@ -36,7 +40,6 @@ commentInputElement.addEventListener('input', function() {
 let submitCommentButton = document.getElementById('submit_button');
 
 submitCommentButton.addEventListener('click', addNewComment);
-
 
 //Makes a new comment object to add to the state's commentList
 //renders the comment list
@@ -73,36 +76,29 @@ function addNewComment() {
 
 }
 
-
 //Takes a comment from the state's commentList array
 //Formats it into HTML
 function createCommentItemElement(comment) {
     
     let newDiv = document.createElement('div');
+    newDiv.classList.add('single_comment');
 
     let identifier = document.createElement('p');
-
-    identifier.textContent = comment.name + " " + comment.date;
+    identifier.classList.add('identifier');
+    identifier.textContent = comment.name + " - " + comment.date;
 
     let commentArea = document.createElement('p');
-
+    commentArea.classList.add('comment_area');
     commentArea.textContent = comment.description;
 
     newDiv.appendChild(identifier);
     newDiv.appendChild(commentArea);
 
-    newDiv.classList.add('single_comment');
-
     return newDiv;
 
 }
 
-//Define a function `renderTaskList()` that will fill in the provided <ol> with 
-//list items (<li>) representing each task in the `state.taskList`. Call your
-//`createTaskItemElement()` function to create each <li> element.
-//Make sure your function removes any previous list content so that only the 
-//current task list is shown after this render call!
-
+//Renders all comments from state's commentList
 function renderCommentList() {
 
     let commentSection = document.getElementById('comment_section');
@@ -119,21 +115,11 @@ function renderCommentList() {
     renderInput();
 }
 
-//Call your `renderTaskList()` function to render the initial list of tasks!
-
+//Initialize comments?!
 renderCommentList();
 
-//Time to fix some of the user experience. Define a new function `renderInput()`
-//that does two things:
-// 1. It should set the <input>'s value to be the `state.inputtedText` (so the
-//    web page matches the state on render).
-// 2. It should "disable" the <button> if the `state.inputtedText` is empty, but
-//    enable it there is inputted text. You can disable a button but setting its
-//    `disabled` property to `true` (and to `false` to enable).
-//Add calls to your `renderInput()` function to BOTH the end of `renderTaskList()`
-//AND to the end of your `'input'` event callback (so the input renders on each
-//user interaction).
-
+//Updates input to match state
+//Updates disabled feature of submit button
 function renderInput() {
 
     let nameInputElement = document.getElementById('name_field');
@@ -145,15 +131,18 @@ function renderInput() {
 
     submitCommentButton.disabled = true;
 
+    submitCommentButton.style.backgroundColor = '#b2aec2';
+
     if (state.inputtedName != "" && state.inputtedComment != "") {
 
         submitCommentButton.disabled = false;
+        submitCommentButton.style.backgroundColor = '#eae5ff';
 
     }
 
 }
 
-//---------------------------------------
+//MUSIC SECTION---------------------------------------------------------------------------------------------------
 
 
 
@@ -185,7 +174,7 @@ function renderTrack(track) {
 
     newP.classList.add('music_label');
 
-    newP.innerHTML = "<b>"+ track.trackName+ "</b>" +  " by: " + "<em>" + track.artistName + "</em>";
+    newP.innerHTML = "<b>"+ track.trackName+ "</b>" +  " by: " + "<cite>" + track.artistName + "</cite>";
 
     newDiv.appendChild(newP);
 
@@ -196,7 +185,6 @@ function renderTrack(track) {
 }
 
 //Render search
-  
 function renderSearchResults(searchResults, term) {
 
 
@@ -256,7 +244,6 @@ fetchTrackList("rabi-ribi final boss battle #3"); //rfn - III
 fetchTrackList("rabi-ribi opening"); //theme of rabi-ribi
 
 //Errors
-
 function renderError(error) {
 
     let newAlertP = document.createElement('p');
@@ -269,7 +256,6 @@ function renderError(error) {
   
 
 //Audio
-
 const audio = { previewAudio: new Audio() };
 
 function playTrackPreview(track, img) {
