@@ -14,7 +14,6 @@ let state = {
     ]
 };
 
-
 let allBossSections = Array.prototype.slice.call(document.getElementsByClassName('boss_section'));
 
 function toggleDisplay() {
@@ -65,8 +64,6 @@ function toggleDisplay() {
 
     }
 
-    
-
 }
 
 
@@ -100,7 +97,6 @@ spIrisuCard.addEventListener('click', toggleGlow);
 
 
 let allVideos = Array.prototype.slice.call(document.getElementsByTagName('video'));
-
 
 let loopButton = document.getElementById('loop');
 loopButton.addEventListener('click', setVideos);

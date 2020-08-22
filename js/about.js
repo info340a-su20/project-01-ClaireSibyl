@@ -144,8 +144,6 @@ function renderInput() {
 
 //MUSIC SECTION---------------------------------------------------------------------------------------------------
 
-
-
 //one "track" is an object from the results array; with an artistName, trackName, previewURL, and artworkUrl100
 function renderTrack(track) {
 
